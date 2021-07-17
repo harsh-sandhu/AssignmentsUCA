@@ -35,6 +35,7 @@ float sqRoot(int num,int precision){
 int main(){
 	int num,precision;
 	scanf("%d %d",&num,&precision);
+
 	float root=sqRoot(num,precision);
 	printf("%f\n",root);
 }
