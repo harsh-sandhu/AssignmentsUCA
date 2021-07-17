@@ -1,3 +1,7 @@
+// Harsh Sandhu- 1911981371
+
+/*Given a positive number n and precision p, find the square root of number upto p decimal places using binary search. Do not use any existing square root function provided by the language*/
+
 #include <stdio.h>
 
 float sqRoot(int num,int precision){
