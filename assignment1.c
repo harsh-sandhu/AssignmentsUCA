@@ -41,5 +41,5 @@ int main(){
 	scanf("%d %d",&num,&precision);
 
 	float root=sqRoot(num,precision);
-	printf("%f\n",root);
+	printf("%g\n",root);
 }
