@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 float sqRoot(int num,int precision){
-	int st=0,end=num/2,mid;
+	int st=0,end=num,mid;
 	float root=0;
 
 	while(st<=end){
