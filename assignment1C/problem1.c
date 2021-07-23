@@ -1,7 +1,7 @@
 /*
  *Program to swap two variable without using third variable
  * 
- * Complilation: gcc -0 swap_variables problem1.c
+ * Compilation: gcc -o swap_variables problem1.c
  * execution: ./swap_variables
  *
  * @Harsh Sandhu, 1911981371, 23/07/2021 
