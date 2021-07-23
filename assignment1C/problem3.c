@@ -24,7 +24,8 @@ int main(){
 
     //passing str into the counting function
     count_vowels_consonants(str);
-
+    
+    return 0;
 }
 
 //the vowels and consonants counting function and then printing it

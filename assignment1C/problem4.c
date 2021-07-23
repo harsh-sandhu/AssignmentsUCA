@@ -40,6 +40,8 @@ int main(){
         printf("%d, ",arr[i]);
     }
     printf("%d]\n",arr[n-1]);
+
+    return 0;
 }
 
 //function for reversing the array passing by reference

@@ -41,5 +41,7 @@ int main(){
 
 	//printing nextline to separate rows(steps)
 	printf("\n");
-   }
+    }
+
+    return 0;
 }
