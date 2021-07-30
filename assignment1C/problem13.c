@@ -10,11 +10,13 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
 #define N 100000
 
 //Declaring the function to find if substring is at end of main string
 bool substring_at_end(char* str1,char* str2);
+
+//Declaring the string length function
+int length(char* str);
 
 int main(){
 
@@ -43,10 +45,10 @@ int main(){
 bool substring_at_end(char *str1, char *str2){
 
     //finding the length of main string
-    int main_len=strlen(str1);
+    int main_len=length(str1);
 	
     //finding the length of secondary string
-    int secondary_len=strlen(str2);
+    int secondary_len=length(str2);
 	
     int j=main_len-secondary_len;
 
@@ -59,5 +61,18 @@ bool substring_at_end(char *str1, char *str2){
 	}
     }
     return true;
+}
+
+//function to find length of the string
+int length(char* str){
+    //intializing a size variable
+    int size=0;
+
+    //iterating through the string
+    for(int i=0;str[i]!='\0';i++){
+        size++;
+    }
+
+    return size;
 }
 

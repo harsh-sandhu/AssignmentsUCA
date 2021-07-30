@@ -9,11 +9,13 @@
  */
 
 #include <stdio.h>
-#include <string.h>
 #define N 100000
 
 //Declaring the function to find rightmost substring index
 int rightmost_substring(char* str1,char* str2);
+
+//Declaring a function to find length
+int length(char* str);
 
 int main(){
 
@@ -42,7 +44,7 @@ int main(){
 int rightmost_substring(char *str1, char *str2){
 
     //finding the length of main string
-    int len=strlen(str1);
+    int len=length(str1);
 
     //intializing the rightmost index
     int max=-1;
@@ -57,7 +59,7 @@ int rightmost_substring(char *str1, char *str2){
 	    int j,count=0;
 
 	    //getting the length of secondary string
-	    int n=strlen(str2);
+	    int n=length(str2);
 
 	    //iterating through the secondary string
 	    for(j=0;str2[j]&&str1[i+j];j++){
@@ -80,3 +82,14 @@ int rightmost_substring(char *str1, char *str2){
     return max;
 }
 
+//function to return length of string
+int length(char* str){
+    //intializing a size varible
+    int size=0;
+
+    for(int i=0;str[i];i++){
+        size++;
+    }
+
+    return size;
+}
