@@ -45,15 +45,15 @@ void count_vowels_consonants(char str[]){
 	    	vowels++;
 	    }
 	}
-	
-	//adding all the alphabets which are not whitespaces
-	if(str[i]!=' '){
-	    consonants++;
-	}
+	//filling all the letters in consonants 
+	consonants++;	
 
     }
-    //to find consonants subtract number of vowels from alphabets(currently stroed in consonants)
+    //subtracting vowels from consonants varible containing all the letters
     consonants-=vowels;
+
+    //subtracting the end-line varible from consonant
+    consonants-=1; 
 
     //printing the number of vowels and consonants
     printf("Vowels=%d ,Consonants=%d\n",vowels,consonants);
