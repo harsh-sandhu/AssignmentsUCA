@@ -1,0 +1,31 @@
+1000 bottles of wine problem
+
+@Harsh Sandhu
+1911981371
+
+05/08/21
+
+-----------------------------------------------------------------------------
+As total number of bottles are 1000
+and number of prisoners are 10
+
+Log 1000 base 2 is Approximately equal to 10
+
+so we can divide 1000 bottles to 10 prisoners in binary number format
+
+Bottle 1 is tasted by prisoner 1 (0000000001)
+Bottle 2 is tasted by prisoner 2 (0000000010)
+Bottle 3 is tasted by prisoner 1 and 2 (0000000011)
+.....
+so like this
+with assume 10 binary places as 10 prisoners
+and we distributes tasting samples of wine according to binary numbers
+
+now how will we know which bottle is poisoned?
+
+Suppose prisoner 8, 6 ,3 and 1 died
+placeing set bit at these possitions give = 0010100101
+which in decimal is 165
+
+so bottle number 165 is poisoned, as this sample was tasted by prisoner 8, 6,3 and 1
+
