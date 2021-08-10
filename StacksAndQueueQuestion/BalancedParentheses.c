@@ -60,6 +60,7 @@ int main(){
         printf("false\n");
     }
 
+    return 0;
 }
 
 //function to balance parentheses
