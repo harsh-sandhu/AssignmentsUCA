@@ -1,0 +1,25 @@
+In Case of hats of two colors( lets say Black and White)
+
+Ten prisoners are in line
+Now we can choose any of two given colors but lets say we choosed black one
+
+now the prisoner at last, 10th prisoner count number of black hats
+
+if number of black hats are even then he loudly says, BLACK!!
+else he says WHITE!!
+
+lets say number of black hats are even, and 10th prisoners says BLACK!!
+
+now the 9th prisoner knows there are even on odd number of hats, in given case he knows 10th prisoner
+say black and now he knows number of black hats are even
+
+now 9th prisoners counts number of black hats in front of him,
+if he counted hats are even, then he knows 10th prisoner said black(Even balck hats),
+so he must be wearing white hat, so he says black and saves his life
+
+in case of odd, then he must be wearing black hat and says BLACK!! and saves his life
+
+same way goes till last prisoner......
+
+in this way we can surely save life og 9 prisoners out of 10
+
