@@ -74,31 +74,29 @@ int is_empty(){
 }
 
 int largestRectangleArea(int* arr, int n){
-        int v[100000];
-        // vector<int> a;
-        int maximum=0;
-        for(int i=0;i<n;i++){
-            while(!is_empty()&&arr[peek()]>=arr[i]){
-                pop();
-            }
-            v[i]=is_empty()?i+1:i-peek();
-            push(i);
-        }
-        while(!is_empty()){
+    int v[100000];
+    int maximum=0;
+    for(int i=0;i<n;i++){
+        while(!is_empty()&&arr[peek()]>=arr[i]){
             pop();
         }
-        for(int i=n-1;i>=0;i--){
-            while(!is_empty()&&arr[peek()]>=arr[i]){
-                pop();
-            }
-            // cout<<arr[i]<<" "<<(v[i]+(st.empty()?n-i:st.top()-i))<<endl;
-            int temp=arr[i]*(v[i]-1+(is_empty()?n-i:peek()-i));
-            if(maximum<=temp){
-                maximum=temp;
-            }
-            push(i);
+        v[i]=is_empty()?i+1:i-peek();
+        push(i);
+    }
+    while(!is_empty()){
+        pop();
+    }
+    for(int i=n-1;i>=0;i--){
+       while(!is_empty()&&arr[peek()]>=arr[i]){
+            pop();
         }
-        return maximum;
+        int temp=arr[i]*(v[i]-1+(is_empty()?n-i:peek()-i));
+        if(maximum<=temp){
+            maximum=temp;
+        }
+        push(i);
+    }
+    return maximum;
 }
 
 

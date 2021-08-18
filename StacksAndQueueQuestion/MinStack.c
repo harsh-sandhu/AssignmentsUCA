@@ -1,3 +1,11 @@
+/*
+ * Min Stack Implementation
+ * Reference: Leet Code
+ *
+ * @Harsh Sandhu, 1911981371, 18/08/2021
+ */
+
+
 typedef struct{
     int *st;
     int top;
@@ -5,7 +13,7 @@ typedef struct{
     int mt;
 }MinStack;
 
-/** initialize your data structure here. */
+// initialize your data structure here.
 
 MinStack* minStackCreate() {
     MinStack s = (MinStack)malloc(sizeof(MinStack));
