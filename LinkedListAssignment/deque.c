@@ -12,10 +12,11 @@
 #include <stdio.h>
 //<-----------QUEUE NODES----------->
 
-//Node for Integer Queue
+//Node for Integer Queue (Doubly linked-list)
 struct Node{
     int data;
     struct Node* next;
+    struct Node* prev;
     struct Node* end;
     int length;
 };
@@ -33,6 +34,7 @@ Node* constructQueue(){
     head->data=-1;
     head->length=-1;
     head->next=NULL;
+    head->prev=NULL;
     head->end=NULL;
 }
 
@@ -42,7 +44,7 @@ Node* constructQueue(){
 //<--------------------ENQUEUE IN THE QUEUE------------------------>
 
 
-//Function to push into Queue
+//Function to push into Queue from back
 void enqueueBack(Node* head,int val){
 
     //if queue is empty
@@ -59,6 +61,9 @@ void enqueueBack(Node* head,int val){
     //assigning at the front
     newNode->data=val;
     newNode->next=NULL;
+    newNode->prev=head->end;
+
+    //end  node
     head->end->next=newNode;
     head->end=newNode;
 
@@ -66,10 +71,10 @@ void enqueueBack(Node* head,int val){
     head->length+=1;
 }
 
-//Function to push into Integer Stack
+//Function to push into Integer Queue from front
 void enqueueFront(Node* head,int val){
 
-    //if stack is empty
+    //if queue is empty
     if(head->length==-1){
     	head->data=val;
 	head->length=1;
@@ -77,16 +82,18 @@ void enqueueFront(Node* head,int val){
 	return;
     }
 
-    //Intializing memory for stack element
+    //Intializing memory for queue element
     Node* newNode=(Node*)malloc(sizeof(Node));
 
     //assigning at the top
     newNode->data=head->data;
     newNode->next=head->next;
+    head->next->prev=newNode;
+    newNode->prev=head;
     head->next=newNode;
     head->data=val;
 
-    //increase length of stack
+    //increase length of queue
     head->length+=1;
 }
 
@@ -118,6 +125,7 @@ void dequeueFront(Node* head){
     head->data=head->next->data;
     Node* todelete=head->next;
     head->next=head->next->next;
+    head->next->prev=head;
 
     //free the unusable memory
     free(todelete);
@@ -127,6 +135,35 @@ void dequeueFront(Node* head){
 
 }
 
+//Function to dequeue from Queue
+void dequeueBack(Node* head){
+
+    //if queue is empty
+    if(head->length==-1){
+    	printf("ERROR: Queue is Empty\n");
+	return;
+    }
+
+    //if queue has only one element
+    if(head->next==NULL){
+    	head->data=-1;
+	head->length=-1;
+	head->end=head;
+	return;
+    }
+
+    //removing the element at back
+    Node* todelete=head->end;
+    head->end=head->end->prev;
+    head->end->next=NULL;
+
+    //free the unusable memory
+    free(todelete);
+
+    //decrease length of queue
+    head->length-=1;
+
+}
 //<------------------------------------------------------------->
 
 
@@ -177,6 +214,26 @@ int is_empty(Node* head){
 
 //<------------------------------------------------------------>
 
+//<-------------------CHECK ELEMENT IN DEQUE------------------->
+//returns 1 if element is present, 0 if not present
+
+int present(Node* head, int val){
+
+    //Two pointers, one from front ,other from back
+    Node* forward=head;
+    Node* backward=head->end;
+
+    //two-pointer Algo 
+    while(forward!=backward&&forward->next!=backward){
+	if(forward->data==val||backward->data==val){
+	    return 1;
+	}
+	forward=forward->next;
+	backward=backward->prev;
+    }
+    return 0;
+}
+//<------------------------------------------------------------>
 
 int main(){
 	Node* head;
@@ -186,9 +243,11 @@ int main(){
 	enqueueBack(head,3);
 	enqueueFront(head,4);
 	enqueueFront(head,5);
-
+	enqueueFront(head,9);
+	printf("%d\n",present(head,6));
+	printf("%d\n",present(head,5));
 	while(!is_empty(head)){
 		printf("%d %d\n",peekFront(head),peekBack(head));
-		dequeueFront(head);
+		dequeueBack(head);
 	}
 }
